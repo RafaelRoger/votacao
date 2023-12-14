@@ -105,6 +105,10 @@ body {
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
+.product-image {
+  max-width: 100%; /* Garante que a imagem não ultrapasse a largura do contêiner pai */
+  height: auto;    /* Mantém a proporção da imagem */
+}
 
 hr {
   margin: 1rem 0;
@@ -169,6 +173,8 @@ p {
   margin-top: 0;
   margin-bottom: 1rem;
 }
+
+
 
 abbr[title] {
   -webkit-text-decoration: underline dotted;
