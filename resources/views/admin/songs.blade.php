@@ -62,6 +62,11 @@
                                                     placeholder="titulo" name="title" required>
                                             </div>
                                             <div class="mb-3">
+                                                <label for="exampleFormControlInput1">Categoria</label>
+                                                <input class="form-control" id="exampleFormControlInput1" type="text"
+                                                    placeholder="titulo" name="categoria" required>
+                                            </div>
+                                            <div class="mb-3">
                                                 <label for="fullNameControlInput">Imagem</label>
                                                 <input class="form-control" name="image" id="fullNameControlInput"
                                                     type="file" placeholder="image" required>

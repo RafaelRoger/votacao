@@ -24,6 +24,7 @@ class UserController extends Controller
             'users' => $users
         ]);
     }
+    
 
     public function store(Request $request) {
 

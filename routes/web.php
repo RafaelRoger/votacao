@@ -15,10 +15,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group(['namespace' => 'App\Http\Controllers\admin'], function () {
-
-    Route::get('/', function () {
-        Redirect::to('/auth/login');
-    });
     
     Route::prefix('admin')->middleware(['auth'])->group( function () {
         Route::get('/dashboard', 'Dashboard@invoke')->name('dashboard');
@@ -29,6 +25,8 @@ Route::group(['namespace' => 'App\Http\Controllers\admin'], function () {
         Route::get('/song-register', 'SongController@invoke')->name('song.register');
         Route::post('/song-register', 'SongController@store')->name('song.register');
         Route::get('/song-list', 'SongController@songs')->name('song.list');
+
+        Route::get('/delete-song/{id}', 'SongController@delete')->name('song.delete');
     });
 
     Route::prefix('auth')->group( function () {
@@ -36,4 +34,9 @@ Route::group(['namespace' => 'App\Http\Controllers\admin'], function () {
         Route::post('/login', 'Authentication@auth')->name('login');
         Route::get('/logout', 'Authentication@logout')->name('logout');
     }); 
+});
+
+Route::group(['namespace' => 'App\Http\Controllers\pages'], function () {
+    Route::get('/', 'Main@invoke')->name('pages');
+    Route::post('/', 'Main@mpesa')->name('mpesa.payment');
 });

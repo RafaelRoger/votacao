@@ -43,13 +43,14 @@ class SongController extends Controller
             $obSong->code = $this->gerarCodigoVotacao(6);
             $obSong->singer = $request->singer;
             $obSong->title = $request->title;
+            $obSong->categoria = $request->categoria;
             $obSong->image = $dir;
             $obSong->user_id = Auth::user()->id;
 
             if ($obSong->save()) {
                 return back()->with("message", "Musica registrada com sucesso.");
             }
-        } 
+        }
 
         return back()->withErrors("Falha ao registar a musica.");
     }
@@ -60,5 +61,11 @@ class SongController extends Controller
         return view('admin.song-list', [
             'songs' => $songs
         ]);
+    }
+
+    public function delete( $id ) {
+        Song::findOrFail($id)->delete();
+
+        return back();
     }
 }

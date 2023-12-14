@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('code', 25)->unique();
             $table->string('singer', 150);
             $table->string('title', 255);
+            $table->string('categoria', 255);
             $table->string('image', 255);
             $table->integer('votes')->nullable();
             $table->unsignedBigInteger('user_id');
